@@ -36,7 +36,7 @@ const data = {
       label: "General",
       items: [
         {
-          title: "home",
+          title: "Home",
           url: "/home",
           icon: LayoutDashboard,
           collapsible: false,
@@ -54,19 +54,19 @@ const data = {
         },
         {
           title: "Cursos",
-          url: "/cursos",
+          url: "/courses",
           icon: GraduationCap,
           collapsible: false,
         },
         {
           title: "Universidades",
-          url: "/universidades",
+          url: "/universities",
           icon: GalleryVerticalEnd,
           collapsible: false,
         },
         {
           title: "Carreras",
-          url: "/carreras",
+          url: "/majors",
           icon: AudioWaveform,
           collapsible: false,
         },
@@ -77,19 +77,19 @@ const data = {
       items: [
         {
           title: "Pagos",
-          url: "/pagos",
+          url: "/payments",
           icon: CreditCard,
           collapsible: false,
         },
         {
           title: "Reportes",
-          url: "/reportes",
+          url: "/reports",
           icon: BarChart3,
           collapsible: false,
         },
         {
           title: "Configuración",
-          url: "/configuracion",
+          url: "/configs",
           icon: Settings,
           collapsible: false,
         },
@@ -100,7 +100,7 @@ const data = {
       items: [
         {
           title: "Centro de ayuda",
-          url: "/ayuda",
+          url: "/help",
           icon: Command,
           collapsible: false,
         },

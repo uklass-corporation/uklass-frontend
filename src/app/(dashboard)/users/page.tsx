@@ -6,8 +6,8 @@ import BreadcrumbHeader from "@/components/shared/breadcrumb/breadcrumb-header";
 export default function UsersPage() {
   const breadcrumbLinks = [
     {
-      href: "/dashboard/home",
-      label: "Dashboard",
+      href: "/home",
+      label: "Inicio",
     },
     {
       label: "Gestión de Usuarios",

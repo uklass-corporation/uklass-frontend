@@ -12,6 +12,7 @@ import {
   GraduationCap,
   LayoutDashboard,
 } from "lucide-react";
+import Image from "next/image";
 
 import {
   Sidebar,
@@ -23,8 +24,10 @@ import {
 } from "@/components/ui/sidebar";
 import { NavMain } from "./nav-main";
 import { NavUser } from "./nav-user";
+import { Button } from "@/components/ui/button";
+import { LogOut } from "lucide-react";
 
-const data = {
+export const data = {
   company: {
     name: "UKLASS",
     email: "admin@uklass.com",
@@ -117,10 +120,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
         <div className="flex items-center gap-3 p-2 flex-wrap min-w-0">
-          <img
+          <Image
             src={data.company.avatar}
             alt={data.company.name}
-            className="w-10 h-10 rounded-full object-cover"
+            className="w-8 h-8 rounded-full object-cover"
+            width={40}
+            height={40}
           />
           {!isMobile && state === "expanded" && (
             <div className="min-w-0">
@@ -135,8 +140,18 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarContent>
         <NavMain groups={data.navGroups} />
       </SidebarContent>
-      <SidebarFooter>
-        <NavUser user={data.company} />
+      <SidebarFooter className="pb-4 mx-2">
+        {/* <NavUser user={data.company} /> */}
+        <Button
+          variant="outline"
+          className="w-full flex items-center justify-center gap-2"
+          onClick={() => {
+            window.location.href = "/";
+          }}
+        >
+          <LogOut className="w-4 h-4" />
+          Cerrar sesión
+        </Button>
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>

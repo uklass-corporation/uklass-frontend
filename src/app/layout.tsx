@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Cecagem Project",
-  description: "Project for managing cecagem processes",
+  title: "Uklass",
+  description: "Project for managing university processes",
 };
 
 export default function RootLayout({

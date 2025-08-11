@@ -3,19 +3,14 @@
 import * as React from "react";
 import {
   AudioWaveform,
-  Calendar,
   Command,
-  FolderOpen,
   GalleryVerticalEnd,
   Settings,
-  LayoutDashboard,
-  // Bell,
   Users,
   CreditCard,
   BarChart3,
   GraduationCap,
-  TrendingUp,
-  Upload,
+  LayoutDashboard,
 } from "lucide-react";
 
 import {
@@ -24,130 +19,89 @@ import {
   SidebarFooter,
   SidebarHeader,
   SidebarRail,
+  useSidebar,
 } from "@/components/ui/sidebar";
-import { TeamSwitcher } from "./corp-switcher";
 import { NavMain } from "./nav-main";
 import { NavUser } from "./nav-user";
 
 const data = {
-  user: {
-    name: "Admin",
-    email: "admin@empresa.com",
-    avatar: "/avatars/admin.jpg",
+  company: {
+    name: "UKLASS",
+    email: "admin@uklass.com",
+    avatar: "/next.svg",
   },
-  teams: [
-    {
-      name: "Administración",
-      logo: GalleryVerticalEnd,
-      plan: "Empresa principal",
-    },
-    {
-      name: "RRHH",
-      logo: AudioWaveform,
-      plan: "Recursos Humanos",
-    },
-    {
-      name: "Colaborador",
-      logo: Command,
-      plan: "Equipo colaborador",
-    },
-  ],
 
   navGroups: [
     {
       label: "General",
       items: [
         {
-          title: "Dashboard",
-          url: "/dashboard",
+          title: "home",
+          url: "/home",
           icon: LayoutDashboard,
           collapsible: false,
         },
-        // {
-        //   title: "Notificaciones",
-        //   url: "/dashboard/notifications",
-        //   icon: Bell,
-        //   collapsible: false,
-        // },
       ],
     },
     {
-      label: "Gestión",
+      label: "Gestión Académica",
       items: [
         {
-          title: "Proyectos",
-          url: "#",
-          icon: FolderOpen,
-          collapsible: false,
-        },
-        {
-          title: "Clientes",
-          url: "#",
-          icon: GraduationCap,
-          collapsible: false,
-        },
-        {
           title: "Usuarios",
-          url: "#",
+          url: "/users",
           icon: Users,
           collapsible: false,
         },
         {
-          title: "Pagos",
-          url: "#",
-          icon: CreditCard,
+          title: "Cursos",
+          url: "/cursos",
+          icon: GraduationCap,
+          collapsible: false,
+        },
+        {
+          title: "Universidades",
+          url: "/universidades",
+          icon: GalleryVerticalEnd,
+          collapsible: false,
+        },
+        {
+          title: "Carreras",
+          url: "/carreras",
+          icon: AudioWaveform,
           collapsible: false,
         },
       ],
     },
     {
-      label: "Herramientas",
+      label: "Administración",
       items: [
         {
-          title: "Calendario",
-          url: "#",
-          icon: Calendar,
+          title: "Pagos",
+          url: "/pagos",
+          icon: CreditCard,
           collapsible: false,
         },
         {
           title: "Reportes",
-          url: "#",
+          url: "/reportes",
           icon: BarChart3,
           collapsible: false,
         },
         {
           title: "Configuración",
-          url: "#",
+          url: "/configuracion",
           icon: Settings,
           collapsible: false,
         },
       ],
     },
     {
-      label: "Colaboradores",
+      label: "Soporte",
       items: [
         {
-          title: "Mis Proyectos",
-          url: "#",
-          icon: FolderOpen,
-          collapsible: false,
-        },
-        {
-          title: "Reportar Avances",
-          url: "#",
-          icon: TrendingUp,
-          collapsible: false,
-        },
-        {
-          title: "Reportes Finales",
-          url: "#",
-          icon: Upload,
-          collapsible: false,
-        },
-        {
-          title: "Mis Pagos",
-          url: "#",
-          icon: CreditCard,
+          title: "Centro de ayuda",
+          url: "/ayuda",
+          icon: Command,
           collapsible: false,
         },
       ],
@@ -156,16 +110,33 @@ const data = {
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const { isMobile, state } = useSidebar();
+  console.log(isMobile);
+
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <TeamSwitcher teams={data.teams} />
+        <div className="flex items-center gap-3 p-2 flex-wrap min-w-0">
+          <img
+            src={data.company.avatar}
+            alt={data.company.name}
+            className="w-10 h-10 rounded-full object-cover"
+          />
+          {!isMobile && state === "expanded" && (
+            <div className="min-w-0">
+              <div className="font-semibold">{data.company.name}</div>
+              <div className="text-xs text-muted-foreground">
+                {data.company.email}
+              </div>
+            </div>
+          )}
+        </div>
       </SidebarHeader>
       <SidebarContent>
         <NavMain groups={data.navGroups} />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
+        <NavUser user={data.company} />
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>

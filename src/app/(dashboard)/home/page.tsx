@@ -7,8 +7,6 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Separator } from "@/components/ui/separator";
 import { SidebarTrigger } from "@/components/ui/sidebar";
-import { Bell } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 export default function Page() {
   return (
@@ -27,15 +25,6 @@ export default function Page() {
         </div>
         <div className="ml-auto mr-4">
           <ModeToggle />
-
-          <Button
-            variant="ghost"
-            size="icon"
-            aria-label="Notificaciones"
-            className="mr-2"
-          >
-            <Bell className="h-5 w-5" />
-          </Button>
         </div>
       </header>
       <div className="flex flex-1 flex-col gap-4 p-2">

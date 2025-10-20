@@ -3,7 +3,6 @@
 import { Separator } from "@/components/ui/separator";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import ModeToggle from "@/components/themes/mode-toggle";
-import { HeaderUser } from "@/components/shared/header/header-user";
 import { NavUser } from "@/components/sidebar/nav-user";
 import {
   Breadcrumb,

@@ -23,7 +23,6 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import { NavMain } from "./nav-main";
-import { NavUser } from "./nav-user";
 import { Button } from "@/components/ui/button";
 import { LogOut } from "lucide-react";
 
